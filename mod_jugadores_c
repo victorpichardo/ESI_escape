@@ -1,0 +1,91 @@
+#include <stdio.h>
+#include <string.h>
+#include <objetos.h>
+
+
+//muestra el inventario, lee de objetos.txt y de jugadores.txt, finito
+void mostrar_inventario (tipo_jugador jugadores; tipo_objeto objetos; int Id_jugador_actual){
+ int i,jugador_encontrado
+ i=1;
+
+ while(i>0){
+  if(jugadores.Id_jugador[i] == Id_jugador_actual){
+    jugador_encontrado=Id_jugador_actual
+    i=0
+  }
+  else{
+    i=1
+  }
+}
+tamamo_actual= sizeof(jugadores.Id_jugador[jugador_encontrado].Id_obj);
+ while(j>0){
+  for(k=0; j<tamamo_actual; j++){
+    if(strcmp(jugadores.Id_jugador[jugador_encoontrado].Id_objetos[j], objetos.Id_obj[k])==0){
+      printf("%s: " objetos.Nomb_obj[k]);
+      printf("%s\n" objetos.Describ[k]);
+    }
+    else
+      k++;
+  }
+
+
+ }
+
+}
+
+int registrar_jugador(Jugador jugadores[], int *num_jugadores,const char *nombre, const char *usuario, const char *contrasena) {
+    char nuevo_id[MAX_ID];
+
+    if (*num_jugadores >= MAX_JUGADORES) {
+        return 0;   // sin espacio
+    }
+
+    if (existe_usuario(jugadores, *num_jugadores, usuario)) {
+        return -1;  // usuario ya existe
+    }
+
+    generar_id_jugador(jugadores, *num_jugadores, nuevo_id);
+
+    strcpy(jugadores[*num_jugadores].id_jugador, nuevo_id);
+    strcpy(jugadores[*num_jugadores].nombre, nombre);
+    strcpy(jugadores[*num_jugadores].usuario, usuario);
+    strcpy(jugadores[*num_jugadores].contrasena, contrasena);
+
+    (*num_jugadores)++;
+
+    return 1;
+}
+
+void guardar_jugador_en_fichero(const char *nombre_fichero, Jugador j) {
+    FILE *f;
+
+    f = fopen(nombre_fichero, "a");
+    if (f == NULL) {
+        printf("Error al abrir el fichero.\n");
+        return;
+    }
+
+    fprintf(f, "%s-%s-%s-%s\n",
+            j.id_jugador, j.nombre, j.usuario, j.contrasena);
+
+    fclose(f);
+}
+//imprime en el fichero jugadores.txt los datos de los jugadores
+void registro_jugadores(){
+  printf("Introduzca su nombre: ");
+  scanf("%s" nombre)
+}
+
+int existe_usuario(Jugador jugadores[], int num_jugadores, const char *usuario) {
+    int i;
+
+    for (i = 0; i < num_jugadores; i++) {
+        if (strcmp(jugadores[i].usuario, usuario) == 0) {
+            return 1;
+        }
+    }
+
+    return 0;
+}
+
+
