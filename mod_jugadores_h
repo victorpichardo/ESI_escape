@@ -1,0 +1,16 @@
+#ifndef JUGADOR_H
+#define JUGADOR_H
+
+#define MAX_JUGADORES 100
+#define MAX_ID 3
+#define MAX_NOMBRE 21
+#define MAX_USER 11
+#define MAX_PASS 9
+
+int existe_usuario(Jugador jugadores[], int num_jugadores, const char *usuario) ;
+void guardar_jugador_en_fichero(const char *nombre_fichero, Jugador j);
+int registrar_jugador(Jugador jugadores[], int *num_jugadores,const char *nombre, const char *usuario, const char *contrasena);
+void mostrar_inventario (tipo_jugador jugadores; tipo_objeto objetos; int Id_jugador_actual);
+
+#endif
+
